@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body {
+        background-color: white;
+        color: black;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    form {
+        display: block;
+        margin-left:10%;
+        width: 80%;
+    }
+
+    input {
+        padding: 10px;
+        width: 300px
+    }
+
+    .querywidth {
+        width: 300px
+    }
+
+    h1 {
+        margin: 30px;
+    }
+
+    #box {
+        display: flex;
+        width: 100%;
+    }
+
+    .boxxx {
+        width: 100%;
+    }
+
+    .updte {
+        width: 708px;
+    }
+
+    @media (max-width:390px) {
+        .updte {
+            display: none;
+        }
+
+        .form {
+            display: block;
+            margin: auto;
+            width: 80%;
+        }
+    }
+</style>
+<div class="boxxx">
+    <h1>Update Details</h1>
+    <div id="box">
+        <form action="{% url 'updateData' pk=key2.id %}" method="post">
+            {% csrf_token %}
+            Name
+            <br>
+            <input type="text" name="name" value="{{customers.fname}} {{customers.lname}}" required readonly>
+            <br>
+            Contact
+            <br>
+            <input type="text" name="number" value="{{customers.contact}}" required readonly>
+            <br>
+            E_mail
+            <br>
+            <input class="querywidth" type="text" name="UpdataEmail" value="{{key2.QueryEmail}}" required readonly>
+            <br>
+            Query
+            <br>
+            <input class="querywidth" type="text" name="UpdataQuery" value="{{key2.Query}}" required>
+            <br>
+            <input type="submit" value="Update">
+        </form>
+
+        <img class="updte" src="{% static 'imgg/update.png' %}">
+    </div>
+</div>
+{% endblock%}

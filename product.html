@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    body {
+        background-color: black;
+        font-family: 'Raleway', sans-serif;
+
+    }
+
+    .store {
+        height: auto;
+        padding: 10px;
+    }
+
+    h1 {
+        color: white;
+        padding: 20px;
+        font-size: 60px;
+    }
+
+    h2 {
+        color: white;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .items {
+        background-color: white;
+        height: auto;
+        margin: auto;
+        width: 98%;
+        display: flex;
+        flex: wrap;
+
+    }
+
+    .product {
+        height: 340px;
+        width: 350px;
+        margin: 8px;
+        /* margin-left: 20px; */
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(rgb(211, 211, 211), white, white, white, rgb(210, 210, 210));
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .product:hover {
+        cursor: pointer;
+        background-color: black;
+    }
+
+    .product:active {
+        background-color: rgba(8, 172, 213, 0.553);
+        background-color: black;
+        cursor: pointer;
+
+    }
+
+    .item2 {
+        background-color: white;
+        height: auto;
+        margin: auto;
+        width: 98%;
+        display: flex;
+        flex: wrap;
+    }
+
+    @media (max-width: 600px) {
+        .product{
+            width: auto;
+        }
+    }
+
+    /* 
+    .product h5 {
+
+    } */
+    .heading {
+        margin-left: 140px;
+    }
+
+    #mac {
+        width: 356px;
+    }
+
+    #mac:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #iphone {
+        width: 300px;
+        margin-top: 50px;
+    }
+
+    #iphone:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #airpods {
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    #airpods:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #iwatch {
+        width: 300px;
+    }
+
+    #iwatch:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #appletv {
+        width: 280px;
+    }
+
+    #appletv:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #homepod {
+        width: 210px;
+        height: 150px;
+        position: relative;
+        top: 18px;
+    }
+
+    #homepod:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #airtag {
+        width: 220px;
+    }
+
+    #airtag:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    #accessories {
+        width: 350px;
+        height: 342px;
+        position: relative;
+        bottom: 1px;
+    }
+
+    #accessories:hover {
+        transform: scale(1.2);
+        transition: 0.5s all ease-in-out;
+    }
+
+    /* display 3 */
+    @media (max-width: 358px) {
+        .items {
+            flex-direction: column;
+        }
+        .item2{
+            flex-direction: column;
+        }
+    }
+
+    video {
+        width: 100%;
+        height: 560px;
+    }
+</style>
+<div class="store">
+    <h1>iStore</h1>
+    <div onmouseenter="videoe()">
+        <video id="myvideo" muted autoplay loop controls>
+            <source src="{% static 'imgg/macvideo.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+    <h2>Store. The best way to buy the products you love.</h2>
+    <div class="items">
+        <br>
+        <div>
+            <div class="product">
+                <a href="{%  url 'mac' %}">
+                    <img id="mac" src="{% static 'imgg/mac.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">Mac</h5>
+            </div>
+        </div>
+        <div>
+            <div class="product">
+                <a href="{% url 'iphone' %}">
+                    <img id="iphone" src="{% static 'imgg/ikaphone.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">iPhone</h5>
+            </div>
+        </div>
+        <div>
+            <div class="product">
+                <a href="{% url 'airpods' %}">
+                    <img id="airpods" src="{% static 'imgg/airpods.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">AirPods</h5>
+            </div>
+        </div>
+        <div>
+            <div class="product">
+                <a href="{% url 'iwatch' %}">
+                    <img id="iwatch" src="{% static 'imgg/iwatch.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">iWatch</h5>
+            </div>
+        </div>
+    </div>
+    <div class="item2">
+        <div>
+            <div class="product">
+                <a href="{% url 'appletv' %}">
+                    <img id="appletv" src="{% static 'imgg/appletv.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">AppleTV</h5>
+            </div>
+        </div>
+        <div>
+            <div class="product">
+                <a href="{% url 'homepod' %}">
+                    <img id="homepod" src="{% static 'imgg/homepod.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">HomePod</h5>
+            </div>
+        </div>
+        <div>
+            <div class="product">
+                <a href="{% url 'airtag' %}">
+                    <img id="airtag" src="{% static 'imgg/airtag.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">AirTag</h5>
+            </div>
+        </div>
+        <div>
+            <div class="product">
+                <a href="{% url 'accessories' %}">
+                    <img id="accessories" src="{% static 'imgg/accessories.png' %}">
+                </a>
+            </div>
+            <div class="heading">
+                <h5 class="h5">Accessories</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function videoe() {
+        document.getElementById('myvideo').removeAttribute('controls')
+    }
+
+</script>
+{% endblock %}

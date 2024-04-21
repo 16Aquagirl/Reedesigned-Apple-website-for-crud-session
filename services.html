@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    .boxx {
+        width: 100%;
+        /* height: 100vh; */
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* filter: blur(2px);
+        -webkit-filter: blur(2px); */
+       
+    }
+    .imggg{
+        /* background-image: url({% static 'imgg/servi.png' %}); */
+        width:100%;
+    }
+</style>
+<div class="boxx">
+    <img class="imggg" src="{%  static 'imgg/servi.png' %}" >
+</div>
+
+{% endblock %}

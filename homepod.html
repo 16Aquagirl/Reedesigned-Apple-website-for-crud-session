@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    h1{
+        color: rgb(0, 0, 0);
+        padding: 20px;
+    }
+    body{
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+
+    }
+    .pod{
+        width: 100%;
+    }
+
+</style>
+    <body>
+        <h1>Homepod</h1>
+        <img class="pod" src="{% static 'imgg/ipod.jpg'' %}">
+        <img class="pod" src="{% static 'imgg/ipodbg.jpg' %}">
+    </body>
+{% endblock %}

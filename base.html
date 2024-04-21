@@ -1,0 +1,216 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Django</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Raleway&family=Rock+Salt&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'style/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #120d0d;
+      font-family: 'Raleway', sans-serif;
+      height: 690px;
+    }
+
+    .bg-body-tertiary {
+      --bs-bg-opacity: 1;
+      background-color: #ffffff !important;
+    }
+
+    h1 {
+      color: rgb(0, 0, 0);
+    }
+
+    .nav-link {
+      color: rgb(0, 0, 0) !important;
+    }
+
+    .logo {
+      width: 50px;
+    }
+
+    header {
+      width: 100%;
+    }
+
+    .footer-clean {
+      color: #fff;
+      background-color: #050404;
+    }
+
+    .footer-clean h3 {
+      margin-top: 40px;
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .footer-clean ul {
+      padding: 0;
+      list-style: none;
+      line-height: 1.6;
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+
+    .footer-clean ul a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.8;
+      font-weight: 100;
+    }
+
+    .footer-clean ul a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width:767px) {
+      .footer-clean .item {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+    }
+
+    @media (max-width:767px) {
+      .footer-clean .item.social>a {
+        margin-top: 10px;
+      }
+    }
+
+    .footer-clean .copyright {
+      margin-top: 14px;
+      margin-bottom: 0;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    .copyright {
+      margin-right: 20px;
+      color: white;
+    }
+    p{
+      text-align: center;
+    }
+    i {
+      background-color: rgb(218, 0, 0);
+    }
+
+    /* .col-lg-3 .item .social {
+    background-color: whitesmoke;
+    } */
+
+    a {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="logo"
+            src="https://yt3.googleusercontent.com/05lhMeAH6tZrPIUsp2yHNz3DwzhKbDUQcxcY0_qeXVyZttR_pktBzw0FcLUSR6D4fVqsEgL3ZO0=s900-c-k-c0x00ffffff-no-rj"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="{%  url 'home' %}">Home</a>
+            <a class="nav-link  active" aria-current="page" href="{%  url 'product' %}">iStore</a>
+            <!-- <a class="nav-link active" aria-current="page" href="{%  url 'contact' %}">Contact</a> -->
+            <a class="nav-link active" aria-current="page" href="{%  url 'services' %}">Services</a>
+            {% if data.email_id%}
+            <a class="nav-link active" aria-current="page" href="{%  url 'logout' %}">Log out</a>
+            {% else %}
+            <a class="nav-link active" aria-current="page" href="{%  url 'signup' %}">Sign Up</a>
+            <a class="nav-link active" aria-current="page" href="{%  url 'login' %}">Log In</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  {% block content %}
+
+  {% endblock %}
+
+  <div class="footer-clean">
+    <footer>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-4 col-md-3 item">
+            <h3 class="h3">Shop and Learn</h3>
+            <ul>
+              <li><a href="#">Mac</a></li>
+              <li><a href="#">iWatch</a></li>
+              <li><a href="#">AirPods</a></li>
+              <li><a href="#">TV & Home</a></li>
+              <li><a href="#">AirTag</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-4 col-md-3 item">
+            <h3 class="h3">Apple Wallet</h3>
+            <ul>
+              <li><a href="#">Wallet</a></li>
+              <li><a href="#">Apple Card</a></li>
+              <li><a href="#">Apple Pay</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-3 item">
+            <h3 class="h3">Entertainment</h3>
+            <ul>
+              <li><a href="#">App Store</a></li>
+              <li><a href="#">Apple Music</a></li>
+              <li><a href="#">Apple Podcast</a></li>
+              <li><a href="#">Apple TV+</a></li>
+              <li><a href="#">Apple News+</a></li>
+              <li><a href="#">Apple Books</a></li>
+              <li><a href="#">Apple Fitness+</a></li>
+              <li><a href="#">Apple Arcade</a></li>
+              <li><a href="#">Apple One</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-3 item">
+            <h3 class="h3"> Apple Wallet</h3>
+            <ul>
+              <li><a href="#">Manage Your Apple ID</a></li>
+              <li><a href="#">Apple Store Account</a></li>
+              <li><a href="#">iCloud.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">Copyright © 2024 Apple Inc. All rights reserved. By Eiyaaa</p>
+  </div>
+   
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body{
+        background-color: white;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+    }
+    th{
+        padding: 14px;  
+    }
+    td{
+        padding: auto;
+        width: 100px;
+    }
+    th,td{
+        text-align: center;
+        border: 1px solid grey;
+    }
+    tbody{
+        padding-left: 80px;
+        width: 100%;
+    }
+    .ewidth{
+        width: 500px;
+    }
+    .qwidth{
+        width: 800px;
+    }
+    .editicon{
+        width: 40px;
+    }
+    .deleteicon{
+        width: 30px;
+    }
+    button{
+        width: 100px;
+        border: 1px solid transparent;
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Query</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in show %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td class="ewidth">{{i.QueryEmail}}</td>
+            <td class="qwidth">{{i.Query}}</td>
+            <td>
+                <a href="{% url 'editPage' pk=i.id %}"><button><img class="editicon" src="{% static 'imgg/editicon.png' %}"></button></a>
+            </td>
+            <td>
+                <a href="{% url 'delete' pk=i.id %}"><button><img class="deleteicon" src="{% static 'imgg/deleteicon.png' %}"></button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    <p style="color: red;">{{msg}}</p>
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    body {
+        color: aliceblue;
+        margin: auto;
+        text-align: center;
+        background-color: #120d0d;
+        font-family: 'Raleway', sans-serif;
+
+    }
+
+    #btn {
+        padding: 8px;
+        font-family: 'Raleway', sans-serif;
+        width: 90px;
+        background-color: rgb(245, 245, 245);
+        border: 1px solid black;
+        font-weight: 800;
+        color: rgb(20, 13, 13);
+
+    }
+
+    form {
+        margin: 60px;
+        border-radius: 1px solid white;
+        height: 500px;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .box {
+        width: 50%;
+        height: 610px;
+        margin: auto;
+        padding: 20px;
+        color: rgb(0, 0, 0);
+        background-color: #ffffff;
+    }
+
+    h1 {
+        color: rgba(63, 63, 63, 0.767);
+        font-weight: 500;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    #piic {
+        width: 880px;
+        height: 610px;
+    }
+
+    .dibba {
+        display: flex;
+    }
+    p{
+        font-size: 12px;
+        margin: 20px;
+    }
+    a{
+        color: green;
+        font-weight: 600;
+    }
+    a:hover{
+        color: rgb(4, 4, 179);
+    }
+    input{
+        width: 85%;
+    }
+    .boxo{
+        width: 50%;
+    }
+    @media (max-width: 380px) {
+        .box{
+            width: 100%;
+        }
+        .boxo{
+            display: none;
+        }
+        .piic{
+            display: none;
+        }
+    }
+
+</style>
+
+<div class="dibba">
+    <div class="box">
+        <h1>Registration form</h1>
+        <p>Signup with your Apple ID to use
+             iCloud or any other Apple services </p>
+
+        <form action="{% url 'logindata' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="fname" name="fname" style="text-transform: capitalize;" value="" required placeholder="First Name" >
+            <br><br>
+            <input type="text" id="lname" name="lname"  style="text-transform: capitalize;" value="" required placeholder="Last name">
+            <br><br>
+            <input type="tel" id="contact" name="contact" value="" required placeholder="Contact no">
+            <br><br>
+            <input type="email" id="address" name="email" value="" required placeholder="Apple ID">
+            <br><br>
+            <input type="password" id="password" name="password" value="" required placeholder="Password"><br><br>
+            <input type="password" id="cfpassword" name="cfpassword" value="" required placeholder="Confirm Password"><br><br>
+            <input id="btn" type="submit" value="SIGN IN">
+
+            <br>
+
+            <p>Already have an Account? <a href="{%  url 'login' %}" > SignUp Now!</a></p>
+
+        </form>
+    </div>
+    <div class="boxo" ><img id="piic" src="{% static 'imgg/apl.webp' %}">
+    </div>
+</div>
+
+
+{% endblock %}

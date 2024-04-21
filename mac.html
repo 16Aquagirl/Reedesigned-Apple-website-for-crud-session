@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    body {
+        background-color: white;
+        font-family: 'Raleway', sans-serif;
+
+    }
+
+    h1 {
+        color: rgb(0, 0, 0);
+        margin: 30px;
+    }
+
+    .mac1,
+    .mac3,
+    .mac4,
+    .mac5 {
+        height: 680px;
+        width: 100%;
+    }
+
+    .mac2 {
+        height: 900px;
+        width: 100%;
+    }
+
+    h2 {
+        float: right;
+        position: absolute;
+        left: 604px;
+        font-size: 61px;
+        font-family: 'Raleway';
+        font-weight: 700;
+        color: #ffac00;
+    }
+</style>
+<h1>Mac</h1>
+
+<div class="box">
+    <h2>IF YOU CAN DREAM IT,<br>
+        MAC CAN DO IT.</h2>
+            <img class="mac1" src="{% static 'imgg/macbook.jpg' %}">
+            <img class="mac2" src="{% static 'imgg/macc.jpg' %}">
+            <img class="mac3" src="{% static 'imgg/macdetail.jpeg' %}">
+
+</div>
+{% endblock %}

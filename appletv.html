@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    h1{
+        color: white;
+        padding: 20px;
+    }
+    body{
+        font-family: 'Raleway', sans-serif;
+        background-color: black;
+    }
+    .itv{
+        width: 100%;
+    }
+</style>
+    <body>
+        <h1>AppleTv</h1>
+    <img class="itv" src="{% static 'imgg/itv.jpg' %}">
+    <img class="itv" src="{% static 'imgg/itv2.jpg' %}">
+    </body>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    body {
+        background-color: black;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .welcome h1 {
+        float: right;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+        text-align-last: right;
+        font-size: 4vw;
+        color: #544b47;
+
+    }
+
+    .welcome {
+        width: 100%;
+        margin-top: 4vw;
+    }
+
+    .boxx {
+        width: 100%;
+    }
+
+    .pc {
+        width: 100%;
+    }
+
+    #container {
+        color: #ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        justify-content: center;
+        font-size: 2vw;
+        font-weight: 500;
+        position: relative;
+        width: 100%;
+        display: inline-block;
+    }
+
+    #flip {
+        height: 50px;
+        overflow: hidden;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+    }
+
+    #flip>div>div {
+        color: #d3d0c7;
+        padding: 4px 12px;
+        display: inline-block;
+    }
+
+    #flip div:first-child {
+        animation: show 10s linear infinite;
+    }
+
+    @keyframes show {
+
+        0% {
+            transform: translateY(-100px);
+        }
+
+        25% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-100px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    #img {
+        width: 100%;
+    }
+
+    span {
+        font-size: 16px;
+        color: #d3d0c7;
+    }
+</style>
+<div class="welcome">
+    <h1>Welcome to Apple store,
+        {{ data | default:'Guest'}}</h1>
+</div>
+<div id=container>
+    <span>iPhone 15</span>
+    <div id=flip>
+        <div>
+            <div>Titanium.So strong.So light.So Pro</div>
+        </div>
+        <div>
+            <div>New Camera,New Design,Newphoria</div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="tab">
+    <div class="boxx">
+        <img class="pc" src="{% static 'imgg/homebg.jpg' %}">
+    </div>
+</div>
+<div>
+    <img id="img" src="{% static 'imgg/homebg2.webp' %}">
+</div>
+
+{% endblock %}

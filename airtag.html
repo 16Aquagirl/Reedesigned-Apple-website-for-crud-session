@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    h1{
+        color: rgb(10, 9, 9);
+        padding: 20px;
+    }
+    body{
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+    .airtag{
+        width: 70%;
+        margin-left:270px;
+    }
+</style>
+    <body>
+        <h1>Airtag</h1>
+        <img class="airtag" src="{% static 'imgg/airtagsbg.jpg' %}">
+    </body>
+{% endblock %}
